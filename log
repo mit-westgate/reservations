@@ -1,0 +1,78 @@
+barbecue.py:       'eventreg':lib.eventreg,'map':lib.admin_map_url,'admin_email':lib.admin_email,'admin_name':lib.admin_name}
+confirm.py:        event = lib.InsertEvent(p['cs'],p['url'],p['etitle'],public,p['area'], \
+lib_old.py:admin_map_url = 'http://maps.google.com/maps?q=42.354987,-71.103922&num=1&t=h&'\
+lib_old.py:def Redirect(url):
+lib_old.py:  <meta http-equiv="refresh" content="0; url=%s">
+lib_old.py:""" % url
+lib_old.py:    url = ''
+lib_old.py:            url = entry.link[0].href
+lib_old.py:    if url == '':
+lib_old.py:    return cs,url
+lib_old.py:def DateQuery(cs,url,start,end):
+lib_old.py:    match = expr.match(url)
+lib_old.py:def IsConflict(cs,url,start,end):
+lib_old.py:    feed = DateQuery(cs,url,start,end)
+lib_old.py:def InsertEvent(cs,url,title,content,where,start,end,items):
+lib_old.py:    newevent = cs.InsertEvent(event,url)
+lib_old.py:        url = ''
+lib_old.py:        cs,url = LoginCal(cname)
+lib_old.py:        if area != '' and IsConflict(cs,url,start,end):
+lib_old.py:            'errors':errors,'cname':cname,'cs':cs,'url':url, \
+lib.py:admin_map_url = 'http://maps.google.com/maps?q=42.354987,-71.103922&num=1&t=h&'\
+lib.py:def Redirect(url):
+lib.py:  <meta http-equiv="refresh" content="0; url=%s">
+lib.py:""" % url
+lib.py:    url = ''
+lib.py:            url = entry.link[0].href
+lib.py:    if url == '':
+lib.py:    return cs,url
+lib.py:def DateQuery(cs,url,start,end):
+lib.py:    request = cs.events().list(calendarId=url, timeMin=start, timeMax=end, maxResults=100)
+lib.py:    match = expr.match(url)
+lib.py:def DeleteEvent(cs, url, event):
+lib.py:    request = cs.events().delete(calendarId=url, eventId=event['id'])
+lib.py:def UpdateEvent(cs, url, event):
+lib.py:    request = cs.events().update(calendarId=url, eventId=event['id'], body=event)
+lib.py:def IsConflict(cs,url,start,end):
+lib.py:    feed = DateQuery(cs,url,start,end)
+lib.py:def InsertEvent(cs,url,title,content,where,start,end,items):
+lib.py:    request = cs.events().insert(calendarId=url, body=event)
+lib.py:        url = ''
+lib.py:        cs,url = LoginCal(cname)
+lib.py:        if area != '' and IsConflict(cs,url,start,end):
+lib.py:            'errors':errors,'cname':cname,'cs':cs,'url':url, \
+lounge.py:       'eventreg':lib.eventreg,'map':lib.admin_map_url,'admin_email':lib.admin_email,'admin_name':lib.admin_name}
+payment.py:            cs,url = lib.LoginCal(area)
+payment.py:            feed = lib.DateQuery(cs,url,start,end)
+payment.py:                    lib.UpdateEvent(cs, url, event)
+payment.py:            cs,url = lib.LoginCal(area)
+payment.py:            feed = lib.DateQuery(cs,url,start,end)
+payment.py:                    lib.DeleteEvent(cs, url, event)
+reg_error.py:def ErrorQuery(cs,url,title,author):
+reg_error.py:    match = expr.match(url)
+reg_error.py:cs,url=lib.LoginCal(cname)
+reg_error.py:print "<br/>url: "
+reg_error.py:print url
+reg_error.py:if lib.IsConflict(cs,url,start,end):
+reg_error.py:    feed = lib.DateQuery(cs,url,start,end)
+reg_error.py:    #feed = ErrorQuery(cs,url,"WEC","drchurchill28")
+reg_error.py:            lib.DeleteEvent(cs,url, event)
+reg_error.py:            lib.DeleteEvent(cs,url, event)
+remind.py:    cs,url = lib.LoginCal(lib.areas[0])
+remind.py:    cs_bbq,url_bbq = lib.LoginCal(lib.areas[1])
+remind.py:    reminderEvents(cs,url,rstart,rstop)
+remind.py:    cleaningEvents(cs,url,cstart,cstop)
+remind.py:    reminderEvents_bbq(cs_bbq,url_bbq,rstart,rstop)
+remind.py:    cleaningEvents_bbq(cs_bbq,url_bbq,cstart,cstop)
+remind.py:def reminderEvents(cs,url,start,stop):
+remind.py:    feed = lib.DateQuery(cs,url,strstart,strstop)
+remind.py:def cleaningEvents(cs,url,start,stop):
+remind.py:    feed = lib.DateQuery(cs,url,strstart,strstop)
+remind.py:def reminderEvents_bbq(cs,url,start,stop):
+remind.py:    feed = lib.DateQuery(cs,url,strstart,strstop)
+remind.py:def cleaningEvents_bbq(cs,url,start,stop):
+remind.py:    feed = lib.DateQuery(cs,url,strstart,strstop)
+table.py:    cs,url = lib.LoginCal(area)
+table.py:    feed = lib.DateQuery(cs,url,fstart,fend)
+test.py:    auth_uri = flow.step1_get_authorize_url()
+test.py:    print "Refresh: 0; url=%s" % auth_uri

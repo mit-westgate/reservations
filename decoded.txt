@@ -1,0 +1,102 @@
+If you have trouble viewing or submitting this form, you can fill it out
+online:
+https://docs.google.com/spreadsheet/viewform?formkey=dDhwMTFNSWVQeURxYy1KMDZCRlJ3aFE6MQ
+
+
+Westgate Lounge Cleaning List
+
+
+Name: *
+
+
+
+Please check off each cleaning item below
+
+Wipe all tables and countertops with a clean, damp cloth
+Wipe down the furniture with a slightly damp cloth.
+Vacuum the carpeted area
+Sweep the kitchen floor
+Mop up all spills with a clean, damp mop after sweeping
+Rinse out the sink
+Clean spills in the oven and on the stovetop
+Empty and clean the refrigerator and freezer
+Empty and replace all full garbage cans and recycling bins and replace with
+a new trash liner (found in trash rooms)
+Place trashbags in a trash room or the Tang dumpsters
+
+
+Confirmation *
+
+By checking this box, I acknowledge I have cleaned the lounge, and agree to
+pay the $40 fine if the lounge is deemed unclean
+
+
+General Comments (ie lounge equipment problems, cleanliness of lounge
+before your event, ways to improve the lounge, etc.)
+
+
+
+Powered by Google Docs Report Abuse - Terms of Service - Additional Terms
+<html style=""><body><div class="ss-email-body" style="width:576px;">If you have trouble viewing or submitting this form, you can fill it out online:
+<br>
+<a href="https://docs.google.com/spreadsheet/viewform?formkey=dDhwMTFNSWVQeURxYy1KMDZCRlJ3aFE6MQ" style="">https://docs.google.com/spreadsheet/viewform?formkey=dDhwMTFNSWVQeURxYy1KMDZCRlJ3aFE6MQ</a>
+<p></p>
+<div dir="ltr" style=""><div class="form-body" style=""><h1 class="ss-form-title" style="">Westgate Lounge Cleaning List</h1>
+<p></p></div>
+<div style="white-space: pre-wrap; display: inline">
+</div>
+<div class="form-body" style=""><div class="ss-form" style=""><form action="https://docs.google.com/spreadsheet/formResponse?formkey=dDhwMTFNSWVQeURxYy1KMDZCRlJ3aFE6MQ&amp;ifq" method="POST" id="ss-form" style="">
+
+<br>
+<div class="errorbox-good" style="">
+<div class="ss-item ss-item-required ss-text" style=""><div class="ss-form-entry" style="margin-bottom:1.5em;zoom:1;"><label class="ss-q-title" for="entry_10" style="display:block;font-weight:bold;">Name:
+<span class="ss-required-asterisk" style="color:#c43b1d;">*</span></label>
+<label class="ss-q-help" for="entry_10" style="display:block;color:#666;margin:.1em 0 .25em 0;"></label>
+<input type="text" name="entry.10.single" value="" class="ss-q-short" id="entry_10" style=""></div></div></div>
+<br> <div class="errorbox-good" style="">
+<div class="ss-item  ss-checkbox" style=""><div class="ss-form-entry" style="margin-bottom:1.5em;zoom:1;"><label class="ss-q-title" for="entry_0" style="display:block;font-weight:bold;">Please check off each cleaning item below
+</label>
+<label class="ss-q-help" for="entry_0" style="display:block;color:#666;margin:.1em 0 .25em 0;"></label>
+<ul class="ss-choices" style="list-style:none;margin:.5em 0 0 0;padding:0;"><li class="ss-choice-item" style="margin:0;line-height:1.3em;padding-bottom:.5em;"><label class="ss-choice-label" style=""><input type="checkbox" name="entry.0.group" value="Wipe all tables and countertops with a clean, damp cloth" class="ss-q-checkbox" id="group_0_1" style="">
+Wipe all tables and countertops with a clean, damp cloth</label></li> <li class="ss-choice-item" style="margin:0;line-height:1.3em;padding-bottom:.5em;"><label class="ss-choice-label" style=""><input type="checkbox" name="entry.0.group" value="Wipe down the furniture with a slightly damp cloth." class="ss-q-checkbox" id="group_0_2" style="">
+Wipe down the furniture with a slightly damp cloth.</label></li> <li class="ss-choice-item" style="margin:0;line-height:1.3em;padding-bottom:.5em;"><label class="ss-choice-label" style=""><input type="checkbox" name="entry.0.group" value="Vacuum the carpeted area" class="ss-q-checkbox" id="group_0_3" style="">
+Vacuum the carpeted area</label></li> <li class="ss-choice-item" style="margin:0;line-height:1.3em;padding-bottom:.5em;"><label class="ss-choice-label" style=""><input type="checkbox" name="entry.0.group" value="Sweep the kitchen floor" class="ss-q-checkbox" id="group_0_4" style="">
+Sweep the kitchen floor</label></li> <li class="ss-choice-item" style="margin:0;line-height:1.3em;padding-bottom:.5em;"><label class="ss-choice-label" style=""><input type="checkbox" name="entry.0.group" value="Mop up all spills with a clean, damp mop after sweeping" class="ss-q-checkbox" id="group_0_5" style="">
+Mop up all spills with a clean, damp mop after sweeping</label></li> <li class="ss-choice-item" style="margin:0;line-height:1.3em;padding-bottom:.5em;"><label class="ss-choice-label" style=""><input type="checkbox" name="entry.0.group" value="Rinse out the sink" class="ss-q-checkbox" id="group_0_6" style="">
+Rinse out the sink</label></li> <li class="ss-choice-item" style="margin:0;line-height:1.3em;padding-bottom:.5em;"><label class="ss-choice-label" style=""><input type="checkbox" name="entry.0.group" value="Clean spills in the oven and on the stovetop" class="ss-q-checkbox" id="group_0_7" style="">
+Clean spills in the oven and on the stovetop</label></li> <li class="ss-choice-item" style="margin:0;line-height:1.3em;padding-bottom:.5em;"><label class="ss-choice-label" style=""><input type="checkbox" name="entry.0.group" value="Empty and clean the refrigerator and freezer" class="ss-q-checkbox" id="group_0_8" style="">
+Empty and clean the refrigerator and freezer</label></li> <li class="ss-choice-item" style="margin:0;line-height:1.3em;padding-bottom:.5em;"><label class="ss-choice-label" style=""><input type="checkbox" name="entry.0.group" value="Empty and replace all full garbage cans and recycling bins and replace with a new trash liner (found in trash rooms)" class="ss-q-checkbox" id="group_0_9" style="">
+Empty and replace all full garbage cans and recycling bins and replace with a new trash liner (found in trash rooms)</label></li> <li class="ss-choice-item" style="margin:0;line-height:1.3em;padding-bottom:.5em;"><label class="ss-choice-label" style=""><input type="checkbox" name="entry.0.group" value="Place trashbags in a trash room or the Tang dumpsters" class="ss-q-checkbox" id="group_0_10" style="">
+Place trashbags in a trash room or the Tang dumpsters</label></li>
+</ul></div></div></div>
+<br> <div class="errorbox-good" style="">
+<div class="ss-item ss-item-required ss-checkbox" style=""><div class="ss-form-entry" style="margin-bottom:1.5em;zoom:1;"><label class="ss-q-title" for="entry_4" style="display:block;font-weight:bold;">Confirmation
+<span class="ss-required-asterisk" style="color:#c43b1d;">*</span></label>
+<label class="ss-q-help" for="entry_4" style="display:block;color:#666;margin:.1em 0 .25em 0;"></label>
+<ul class="ss-choices" style="list-style:none;margin:.5em 0 0 0;padding:0;"><li class="ss-choice-item" style="margin:0;line-height:1.3em;padding-bottom:.5em;"><label class="ss-choice-label" style=""><input type="checkbox" name="entry.4.group" value="By checking this box, I acknowledge I have cleaned the lounge, and agree to pay the $40 fine if the lounge is deemed unclean" class="ss-q-checkbox" id="group_4_1" style="">
+By checking this box, I acknowledge I have cleaned the lounge, and agree to pay the $40 fine if the lounge is deemed unclean</label></li>
+</ul></div></div></div>
+<br> <div class="errorbox-good" style="">
+<div class="ss-item  ss-paragraph-text" style=""><div class="ss-form-entry" style="margin-bottom:1.5em;zoom:1;"><label class="ss-q-title" for="entry_11" style="display:block;font-weight:bold;">General Comments (i.e lounge equipment problems, cleanliness of lounge before your event, ways to improve the lounge, etc.)
+</label>
+<label class="ss-q-help" for="entry_11" style="display:block;color:#666;margin:.1em 0 .25em 0;"></label>
+<textarea name="entry.11.single" rows="8" cols="75" class="ss-q-long" id="entry_11" style="max-width:90%;"></textarea></div></div></div>
+<br>
+<input type="hidden" name="pageNumber" value="0" style="">
+<input type="hidden" name="backupCache" style="">
+
+
+<div class="ss-item ss-navigate" style=""><div class="ss-form-entry" style="margin-bottom:1.5em;zoom:1;">
+<input type="submit" name="submit" value="Submit" style=""></div></div></form>
+</div>
+<div class="ss-footer" style=""><div class="ss-attribution" style=""></div>
+<div class="ss-legal" style=""><span class="ss-powered-by" style="color:#666;">Powered by <a href="http://docs.google.com" style="">Google Docs</a></span>
+<span class="ss-terms" style="display:block;clear:left;margin:1em 0.2em 0.2em;"><small><a href="https://docs.google.com/spreadsheet/reportabuse?formkey=dDhwMTFNSWVQeURxYy1KMDZCRlJ3aFE6MQ&amp;source=https%253A%252F%252Fdocs.google.com%252Fspreadsheet%252Fviewform%253Fformkey%253DdDhwMTFNSWVQeURxYy1KMDZCRlJ3aFE6MQ" style="">Report Abuse</a>
+-
+<a href="http://www.google.com/accounts/TOS" style="">Terms of Service</a>
+-
+<a href="http://www.google.com/google-d-s/terms.html" style="">Additional Terms</a></small></span></div></div></div></div>
+<br>
+<style type="text/css" media="screen" style="">
+          .form-body{display:none;}
+        </style></div></body></html>
