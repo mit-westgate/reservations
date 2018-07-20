@@ -1,1 +1,0 @@
-{'Westgate President': 6, 'Information & Technology Coordinator': 0, 'Partners Community Coordinator': 4, 'Social Chair': 6, 'Sustainability Coordinator': 2, 'Community Coordinator': 5, 'Parents Resource Coordinator': 3, 'Residental Life Associate': 0, 'President': 5, 'Couples Resource Coordinator': 5, 'Secretary-Treasurer': 4}
