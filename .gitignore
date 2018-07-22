@@ -1,4 +1,12 @@
 *.py[cod]
 *.swp
 
+*.fcgi
+!app.fcgi
+
+*.db
+
+/lib
+
 ReservationSystem.p12
+

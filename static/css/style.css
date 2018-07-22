@@ -1,0 +1,25 @@
+header {
+  margin-top: 5%:
+}
+
+footer{
+  margin-top: 2%;
+}
+
+.table-check {
+  padding-top:2px;
+}
+
+
+.vertical-space {
+  margin-bottom: 3%;
+}
+
+.small-text {
+  font-size: 0.75em;
+  line-height: 1em;
+}
+
+.row {
+  margin-bottom: 2%;
+}
