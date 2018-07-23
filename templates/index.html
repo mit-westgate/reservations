@@ -1,0 +1,143 @@
+{% extends 'default.html' %}
+
+
+<!-- macros -->
+{% macro text(width, id, label, ph, type='text', class='u-full-width') -%}
+<div class="{{width}} columns">
+  <label for="{{id}}">{{label}}</label>
+  <input class="{{class}}" type="{{type}}" id="{{id}}" placeholder="{{ph}}" />
+</div>
+{%- endmacro %}
+
+
+{% macro radio(width, id, name, label) -%}
+<div class="{{ width }} columns">
+  <input type="radio" name="{{ name }}" id="{{ id }}" />
+  <span class="label-body">{{ label }}</span>
+</div>
+{%- endmacro%}
+
+{% macro checkbox(width, id, label, name='') -%}
+<div class="{{ width }} columns">
+  <input type="checkbox" name="{{ name }}" id="{{ id }}" value="true"/>
+  <span class="label-body">{{ label }}</span>
+</div>
+{%- endmacro%}
+
+
+{% block contents %}
+
+  <div class="row">
+    <div class="six columns">
+      after viewing the online
+      <a href="http://www.google.com/calendar/embed?src=jbt1onapg3ffroh27umi9qm4ic%40group.calendar.google.com">
+        lounge
+      </a>
+      or
+      <a href="http://www.google.com/calendar/embed?src=tjsllo1pojk4tpcp40l8pinseg%40group.calendar.google.com">
+        barbecue
+      </a>
+      calendar and finding an open time slot,
+      complete the form below to request a reservation for the Westgate
+      lounge or barbecue area.
+      An admit One ticket purchase is required prior to every reservation. (Except, events sponsored by the
+      Westgate Executive Committee)
+    </div>
+  </div>
+
+<form>
+  <div class="row">
+    {{ text('six', id='first_name', label='first name', ph='Tim' ) }}
+    {{ text('six', id='last_name', label='last name', ph='Beaver' ) }}
+  </div>
+  
+  <div class="row">
+    {{ text('eight', id='email', label='email', ph='tim@mit.edu', type='email' ) }}
+    {{ text('four', id='apartment', label='apartment', ph='1800' ) }}
+  </div>
+
+
+  <div class="row"><strong>place<strong></div>
+  <div class="row">
+    {{ radio('two', id='lounge', name='place', label='lounge') }}
+    {{ radio('two', id='bbq', name='place', label='bbq') }}
+  </div>
+
+  <div class="row">
+    {{ text('eight', id='event_name', label='event name', ph='Annual beaver conference') }}
+    {{ text('four', id='admit_one', label='adMIT One #', ph='123456' ) }}
+  </div>
+
+  <div class="row">
+    {{ text('four', id='date', label='date', ph='dd/mm/yy', type='date') }}
+    {{ text('four', id='starts', label='starts', ph='16:00', type='time' ) }}
+    {{ text('four', id='ends', label='ends', ph='20:00', type='time' ) }}
+  </div>
+
+  <div class="row">
+    {{ checkbox('six', id='wec_event', name='is_wec_event', label='This event is sponsored by WEC.')}}
+    <div class="six columns">
+      <input type="checkbox" name="did_agree_rules" id="agree_rules" value="true"/>
+      <span class="label-body">
+        I have read and agree with the <a href="/rules">lounge and barbecue rules</a>,
+        including the fact of a $60 fine if the place id left messy.
+      </span>
+    </div>
+  </div>
+
+  <div class="row"><strong>Will 100 or more guests be at this event?<strong></div>
+  <div class="row">
+    {{ radio('two', id='hundred_no', name='hundred', label='No') }}
+    <div class="five columns">
+      <input type="radio" name="hundred" id="hundred_yes" />
+      <span class="label-body">
+        Yes,
+        <p class="small-text">I will file all of the neccessary forms prioir to the event and
+        comply with all MIT policies found on the
+        <a href="http://web.mit.edu/westgate/documents/MIT Event Registration Form.pdf">
+        MIT Event Registration Form
+        </a>.</p>
+      </span>
+    </div>
+  </div>
+
+  <div class="row"><strong>Will alcoholic beverages be at this event?<strong></div>
+  <div class="row">
+    {{ radio('two', id='alcohol_no', name='alcohol', label='No') }}
+    <div class="five columns">
+      <input type="radio" name="alcohol" id="alcohol_yes_few" />
+      <span class="label-body">
+        Yes, and there will be 50 or fewer guests.
+        <p class="small-text">
+          I will file all necessary forms and comply with all alcohol-related policies found
+          on the 
+          <a href="http://web.mit.edu/westgate/documents/Westgate%20Alcohol%20Registration%20Form.pdf">
+            Westgate Alcohol Registration Form
+          </a>.
+        </p>
+      </span>
+    </div>
+    <div class="five columns">
+    <input type="radio" name="alcohol" id="alcohol_yes_more" />
+      <span class="label-body">
+        Yes, and there will be more than 50 guests.
+        <p class="small-text">
+          I will file all necessary forms and comply with all alcohol-related policies found
+          at <a href="http://web.mit.edu/eventguide/eventregulations/alcohol.html">
+          Alcohol Policies and Procedures @ MIT 
+          </a>
+          and on the 
+        <a href="http://web.mit.edu/westgate/documents/MIT Event Registration Form.pdf">
+          MIT Event Registration Form
+        </a>.</p>
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <button class="button-primary" type="submit"> submit </button>
+  </div>
+
+</form>
+
+{% endblock %}

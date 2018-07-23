@@ -232,6 +232,9 @@ input[type="text"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
+/* experimenting with date and time  */
+input[type="date"],
+input[type="time"],
 textarea,
 select {
   height: 38px;
@@ -249,6 +252,9 @@ input[type="text"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
+/* experimenting with date and time  */
+input[type="date"],
+input[type="time"],
 textarea {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -264,6 +270,9 @@ input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
+/* experimenting with date and time  */
+input[type="date"]:focus,
+input[type="time"]:focus,
 textarea:focus,
 select:focus {
   border: 1px solid #33C3F0;
