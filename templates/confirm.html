@@ -1,9 +1,53 @@
 {% extends 'default.html' %}
 
 {% block page_title %}
-admin
+confirmation
 {% endblock %}
 
 {% block contents %}
-hello again
+<div class="row">
+  <div class "twelve columns">
+  please take a second look for the reservation.
+</div>
+
+<div class="row">
+  <div class="three columns align-right">
+    Name:<br>
+    Email:<br>
+    Apartment:<br>
+    Place:<br>
+    Event Name:<br>
+    adMIT One #:<br>
+    Date:<br>
+    Starts:<br>
+    Untill:<br>
+  </div>
+  <div class="six columns">
+    Test Test<br>
+    test@test.com<br>
+    706<br>
+    lounge<br>
+    Birthday event<br>
+    948503<br>
+    2018/08/30<br>
+    7:00pm<br>
+    11:00pm<br>
+  </div>
+
+</div>
+
+
+
+<div class="row">
+  <div class="two columns">
+    <button class="button" type="cancel"> cancel </button>
+  </div>
+  <div class="two columns">
+    <button class="button-primary" type="submit"> confirm </button>
+  </div>
+</div>
+
+
+
+
 {% endblock %}
