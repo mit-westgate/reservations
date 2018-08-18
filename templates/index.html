@@ -5,14 +5,14 @@
 {% macro text(width, id, label, ph, type='text', class='u-full-width') -%}
 <div class="{{width}} columns">
   <label for="{{id}}">{{label}}</label>
-  <input class="{{class}}" type="{{type}}" id="{{id}}" placeholder="{{ph}}" />
+  <input class="{{class}}" type="{{type}}" id="{{id}}" name="{{id}}" placeholder="{{ph}}" />
 </div>
 {%- endmacro %}
 
 
-{% macro radio(width, id, name, label) -%}
+{% macro radio(width, id, name, label, value) -%}
 <div class="{{ width }} columns">
-  <input type="radio" name="{{ name }}" id="{{ id }}" />
+  <input type="radio" name="{{ name }}" value="{{ value }}" id="{{ id }}" />
   <span class="label-body">{{ label }}</span>
 </div>
 {%- endmacro%}
@@ -45,7 +45,7 @@
     </div>
   </div>
 
-<form>
+<form action="/confirm" method="post">
   <div class="row">
     {{ text('six', id='first_name', label='first name', ph='Tim' ) }}
     {{ text('six', id='last_name', label='last name', ph='Beaver' ) }}
@@ -59,8 +59,8 @@
 
   <div class="row"><strong>place<strong></div>
   <div class="row">
-    {{ radio('two', id='lounge', name='place', label='lounge') }}
-    {{ radio('two', id='bbq', name='place', label='bbq') }}
+    {{ radio('two', id='lounge', name='place', label='lounge', value='0') }}
+    {{ radio('two', id='bbq', name='place', label='bbq', value='1') }}
   </div>
 
   <div class="row">
@@ -87,9 +87,9 @@
 
   <div class="row"><strong>Will 100 or more guests be at this event?<strong></div>
   <div class="row">
-    {{ radio('two', id='hundred_no', name='hundred', label='No') }}
+    {{ radio('two', id='hundred_no', name='hundred', label='No', value='0') }}
     <div class="five columns">
-      <input type="radio" name="hundred" id="hundred_yes" />
+      <input type="radio" name="hundred" id="hundred_yes" value="1" />
       <span class="label-body">
         Yes,
         <p class="small-text">I will file all of the neccessary forms prioir to the event and
@@ -103,9 +103,9 @@
 
   <div class="row"><strong>Will alcoholic beverages be at this event?<strong></div>
   <div class="row">
-    {{ radio('two', id='alcohol_no', name='alcohol', label='No') }}
+    {{ radio('two', id='alcohol_no', name='alcohol', label='No', value='0') }}
     <div class="five columns">
-      <input type="radio" name="alcohol" id="alcohol_yes_few" />
+      <input type="radio" name="alcohol" id="alcohol_yes_few" value="1" />
       <span class="label-body">
         Yes, and there will be 50 or fewer guests.
         <p class="small-text">
@@ -118,7 +118,7 @@
       </span>
     </div>
     <div class="five columns">
-    <input type="radio" name="alcohol" id="alcohol_yes_more" />
+    <input type="radio" name="alcohol" id="alcohol_yes_more" value="2" />
       <span class="label-body">
         Yes, and there will be more than 50 guests.
         <p class="small-text">

@@ -5,8 +5,10 @@
 !app.fcgi
 
 *.db
+*.sqlite
 
 /lib
 
 ReservationSystem.p12
+
 

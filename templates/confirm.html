@@ -20,18 +20,24 @@ confirmation
     adMIT One #:<br>
     Date:<br>
     Starts:<br>
-    Untill:<br>
+    Ends:<br>
+    Wec Event?:<br>
+    More than 100?:<br>
+    alcohol?:<br>
   </div>
   <div class="six columns">
-    Test Test<br>
-    test@test.com<br>
-    706<br>
-    lounge<br>
-    Birthday event<br>
-    948503<br>
-    2018/08/30<br>
-    7:00pm<br>
-    11:00pm<br>
+    {{ name }}<br>
+    {{ email }}<br>
+    {{ apartment }}<br>
+    {{ place }}<br>
+    {{ event_name }}<br>
+    {{ admit}}<br>
+    {{ date }}<br>
+    {{ starts }}<br>
+    {{ ends }}<br>
+    {{ is_wec }}<br>
+    {{ hundred }}<br>
+    {{ alcohol }}<br>
   </div>
 
 </div>
@@ -43,7 +49,10 @@ confirmation
     <button class="button" type="cancel"> cancel </button>
   </div>
   <div class="two columns">
+    <form action="/success" method="post">
+    <input id="json_data" name="json_data" type="hidden" value="{{json_data}}">
     <button class="button-primary" type="submit"> confirm </button>
+    </form>
   </div>
 </div>
 
