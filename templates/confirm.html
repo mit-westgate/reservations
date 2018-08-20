@@ -18,7 +18,6 @@ confirmation
     Place:<br>
     Event Name:<br>
     adMIT One #:<br>
-    Date:<br>
     Starts:<br>
     Ends:<br>
     Wec Event?:<br>
@@ -26,18 +25,17 @@ confirmation
     alcohol?:<br>
   </div>
   <div class="six columns">
-    {{ name }}<br>
-    {{ email }}<br>
-    {{ apartment }}<br>
-    {{ place }}<br>
-    {{ event_name }}<br>
-    {{ admit}}<br>
-    {{ date }}<br>
-    {{ starts }}<br>
-    {{ ends }}<br>
-    {{ is_wec }}<br>
-    {{ hundred }}<br>
-    {{ alcohol }}<br>
+    {{ r['name'] }}<br>
+    {{ r['email'] }}<br>
+    {{ r['apartment'] }}<br>
+    {{ r['place'] }}<br>
+    {{ r['event_name'] }}<br>
+    {{ r['admitOne']}}<br>
+    {{ r['start_time'] }}<br>
+    {{ r['end_time'] }}<br>
+    {{ r['is_wec'] }}<br>
+    {{ r['hundred'] }}<br>
+    {{ r['alcohol'] }}<br>
   </div>
 
 </div>

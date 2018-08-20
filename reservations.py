@@ -59,7 +59,9 @@ def confirm():
     else:
         alcohol = "serving, guest more than 50"
 
-    r = Reservation(
+
+
+    reservation = Reservation(
             first_name,
             last_name,
             email,
@@ -67,6 +69,7 @@ def confirm():
             place_id,
             event_name,
             admit,
+            date,
             starts,
             ends,
             is_wec,
@@ -74,24 +77,11 @@ def confirm():
             alcohol_type
             );
 
-    json_data = r.to_json()
-
     # TODO: SUPER REDUNDANT!!!
     
     return render_template("confirm.html",
-            name=name,
-            email=email,
-            apartment=apartment,
-            place=place,
-            event_name=event_name,
-            admit=admit,
-            date=date,
-            starts=starts,
-            ends=ends,
-            is_wec=is_wec,
-            hundred=hundred,
-            alcohol=alcohol,
-            json_data = json_data
+            r=reservation.get_obj(),
+            json_data = reservation.to_json()
             )
 
 @app.route('/success', methods=['POST'])
