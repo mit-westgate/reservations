@@ -3,6 +3,7 @@ import hashlib
 import collections
 import functools
 import subprocess
+import json
 from flask import Flask
 from flask import request
 from flask import redirect
@@ -12,18 +13,14 @@ from flask import g
 from flask import make_response
 from email.mime.text import MIMEText
 
+from datetime import datetime
+
 from Reservation import Reservation
+from GoogleCalendar import GoogleCalendar
+from Helper import send_mail, check_admin
 
-import sqlite3
-conn = sqlite3.connect('reservations_db.sqlite')
-
-cursor = conn.cursor()
-Reservation.setup_database(cursor)
-
-# r = Reservation("Yasushi", "Sakai", "ysshski@gmail.com","706", 0, "birthday", "hjkloi", 89008, 1588304, 0, 1, 0 )
-# r.add_record(cursor);
-
-print Reservation.select_all(cursor)
+Reservation.init_database()
+calendar = GoogleCalendar()
 
 app = Flask(__name__, template_folder='./templates', static_url_path='/static')
 app.debug = True
@@ -34,6 +31,7 @@ def index():
 
 @app.route('/confirm', methods=['POST'])
 def confirm():
+    
     first_name = request.form.get("first_name")
     last_name = request.form.get("last_name")
     email = request.form.get('email')
@@ -44,22 +42,12 @@ def confirm():
     date = request.form.get("date")
     starts = request.form.get("starts")
     ends = request.form.get("ends")
-    is_wec = request.form.get("is_wec_event")
-    is_hundred_or_more = int(request.form.get("hundred"))
+    is_wec = False if request.form.get("is_wec_event") is None else True
+    is_hundred_or_more = True if int(request.form.get("hundred")) == 1 else False
     alcohol_type = int(request.form.get("alcohol"))
 
-    name = "{} {}".format(first_name, last_name)
-    place = "Lounge" if place_id is 0 else "BBQ"
-    hundred = "no" if is_hundred_or_more is 0 else "yes"
-    
-    if (alcohol_type is 0):
-        alcohol = "not serving alcohol"
-    elif (alcohol_type is 1):
-        alcohol = "serving, guests less than 50"
-    else:
-        alcohol = "serving, guest more than 50"
-
-
+    start_time = Reservation.form_to_datetime(date, starts)
+    end_time = Reservation.form_to_datetime(date, ends)
 
     reservation = Reservation(
             first_name,
@@ -69,28 +57,68 @@ def confirm():
             place_id,
             event_name,
             admit,
-            date,
-            starts,
-            ends,
+            start_time,
+            end_time,
             is_wec,
             is_hundred_or_more,
             alcohol_type
             );
 
-    # TODO: SUPER REDUNDANT!!!
-    
+    # received data will be serialized into json
+
     return render_template("confirm.html",
             r=reservation.get_obj(),
             json_data = reservation.to_json()
             )
 
-@app.route('/success', methods=['POST'])
-def success():
-    print request.form.get("json_data")
-    return render_template("success.html")
+@app.route('/check', methods=['POST'])
+def check():
+    json_data = json.loads(request.form.get("json_data"))
+    r = Reservation.from_json(json_data)
+    start_time = r.render_time()
 
-# app.add_url_rule('/success', 'success', success, methods=['GET'])
-# app.add_url_rule('/admin', 'admin', admin, methods=['GET'])
+    err = r.check(calendar)
+    
+    if (err is None) :
+
+        r.add(calendar)
+
+        return render_template("success.html",
+            place = json_data['place'],
+            event_name=r.event_name,
+            start_time=start_time
+        )
+    else :
+        return render_template("error.html",
+            err=err 
+        )
+    
+@app.route('/admin', methods=['GET', 'POST'])
+def admin():
+
+    # handle this with javascript
+    if request.method == 'POST':
+        for value in request.form:
+            command = value.split("_")
+            if command[0] == 'del':
+                r = Reservation.select_by_event_id(command[1])
+                r.delete(calendar)
+            elif command[0] == 'update' and command[1] == 'paid':
+                try:
+                    r = Reservation.select_by_event_id(command[2])
+                    r.update_did_pay()
+                except:
+                    pass
+            
+    now = datetime.now() 
+    year = request.args.get('year', default = now.year, type = int)
+    month = request.args.get('month', default = now.month, type = int)
+    result = Reservation.select_month(year, month)
+    return render_template("admin.html",
+            year = year,
+            month = month,
+            reservations = result
+            )
 
 @app.after_request
 def disable_xss_protection(response):

@@ -1,5 +1,46 @@
 {% extends 'default.html' %}
 
+
+{% macro reservation(id, place, start_time, first_name, last_name, email, event_name, adMitOne, did_pay, is_wec) %}
+<tr>
+  <td>
+    <input type="checkbox" name="del_{{id}}" value="1" />
+  </td>
+  <td>
+    {% if did_pay %}
+    <input type="checkbox" name="update_paid_{{id}}" value="1" checked/>
+    {% else %}
+    <input type="checkbox" name="update_paid_{{id}}" value="1" />
+    {% endif %}
+  </td>
+
+  <td>
+    {{ place }}
+  </td>
+  <td>
+    {{ start_time }}
+  </td>
+  <td>
+    <a href="mailto:{{ email }}">{{ first_name }} {{ last_name }}</a>
+  </td>
+  <td>
+    {{ event_name }}
+  </td>
+  <td>
+    {{ adMitOne }}
+  </td>
+  <td>
+    {% if is_wec %}
+      Yes
+    {% else %}
+      No
+    {% endif %}
+  </td>
+</tr>
+
+{%- endmacro %}
+
+
 {% block page_title %}
 admin
 {% endblock %}
@@ -7,7 +48,20 @@ admin
 {% block contents %}
 <div class="row">
   <div class="six columns">
-    Reservation list
+    Reservation list for {{ year }} / {{ month }}.
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <form action="/admin" method="post">
+    <table>
+      {% for r in reservations %}
+        {{ reservation(r.event_id, r.get_place(), r.render_time(), r.first_name, r.last_name, r.email, r.event_name, r.adMitOne, r.did_pay, r.is_wec)}}
+      {% endfor %}
+    </table>
+    <button class="button-primary" type="submit"> submit</button>
+    </form>
   </div>
 </div>
 

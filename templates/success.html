@@ -1,13 +1,13 @@
 {% extends 'default.html' %}
 
 {% block page_title %}
-Success!
+Hooray!
 {% endblock %}
 
 {% block contents %}
 <div class="row">
   <div class="six columns">
-    Lounge reservation for "Birtday Event" at 2018-08-30 was successfully booked.
+    {{ place }} reservation for {{ event_name }} starting from {{ start_time }} was successfully booked.
   </div>
 </div>
 <div class="row">

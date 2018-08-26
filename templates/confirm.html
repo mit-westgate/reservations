@@ -30,31 +30,25 @@ confirmation
     {{ r['apartment'] }}<br>
     {{ r['place'] }}<br>
     {{ r['event_name'] }}<br>
-    {{ r['admitOne']}}<br>
-    {{ r['start_time'] }}<br>
-    {{ r['end_time'] }}<br>
+    {{ r['adMitOne']}}<br>
+    {{ r['starts'] }}<br>
+    {{ r['ends'] }}<br>
     {{ r['is_wec'] }}<br>
     {{ r['hundred'] }}<br>
     {{ r['alcohol'] }}<br>
   </div>
-
 </div>
-
-
 
 <div class="row">
   <div class="two columns">
     <button class="button" type="cancel"> cancel </button>
   </div>
   <div class="two columns">
-    <form action="/success" method="post">
+    <form action="/check" method="post">
     <input id="json_data" name="json_data" type="hidden" value="{{json_data}}">
     <button class="button-primary" type="submit"> confirm </button>
     </form>
   </div>
 </div>
-
-
-
 
 {% endblock %}
