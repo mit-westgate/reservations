@@ -12,7 +12,8 @@ define HTACCESS
 <IfModule mod_rewrite.c>
    Options +FollowSymlinks
    RewriteEngine On
-   RewriteBase /
+   RewriteBase /reservations
+   RewriteRule ^admin$$ admin.py [L]
    RewriteCond %{REQUEST_FILENAME} !-f
    RewriteRule ^(.*)$$ $(FCGI_NAME).fcgi/$$1 [QSA,L]
 </IfModule>
