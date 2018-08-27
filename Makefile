@@ -30,7 +30,7 @@ lib:
 	wget -P lib https://pypi.python.org/packages/source/f/flup/flup-1.0.2.tar.gz
 	wget -P lib https://pypi.python.org/packages/source/i/itsdangerous/itsdangerous-0.23.tar.gz
 	wget -P lib https://pypi.python.org/packages/source/F/Flask/Flask-0.10.1.tar.gz
-	wget -P lib https://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.7.2.tar.gz
+	wget -P lib https://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.10.tar.gz
 	wget -P lib https://pypi.python.org/packages/source/W/Werkzeug/Werkzeug-0.9.4.tar.gz
 	wget -P lib https://files.pythonhosted.org/packages/ca/a9/62f96decb1e309d6300ebe7eee9acfd7bccaeedd693794437005b9067b44/pytz-2018.5.tar.gz
 	wget -P lib https://files.pythonhosted.org/packages/50/30/f89a4fc014a03e180840d432e73ffb96da422f2a8094ff3539f0f0c46661/oauth2client-4.1.2.tar.gz
@@ -46,7 +46,7 @@ lib:
 	tar -C lib -xzf lib/flup-1.0.2.tar.gz
 	tar -C lib -xzf lib/itsdangerous-0.23.tar.gz
 	tar -C lib -xzf lib/Flask-0.10.1.tar.gz
-	tar -C lib -xzf lib/Jinja2-2.7.2.tar.gz
+	tar -C lib -xzf lib/Jinja2-2.10.tar.gz
 	tar -C lib -xzf lib/Werkzeug-0.9.4.tar.gz
 	tar -C lib -xzf lib/pytz-2018.5.tar.gz
 	tar -C lib -xzf lib/oauth2client-4.1.2.tar.gz
@@ -62,7 +62,7 @@ lib:
 	rm lib/flup-1.0.2.tar.gz
 	rm lib/itsdangerous-0.23.tar.gz
 	rm lib/Flask-0.10.1.tar.gz
-	rm lib/Jinja2-2.7.2.tar.gz
+	rm lib/Jinja2-2.10.tar.gz
 	rm lib/Werkzeug-0.9.4.tar.gz
 	rm lib/pytz-2018.5.tar.gz
 	rm lib/oauth2client-4.1.2.tar.gz
