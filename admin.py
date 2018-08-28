@@ -7,17 +7,20 @@ from jinja2 import Environment, PackageLoader, select_autoescape
 
 from Helper import check_admin
 from Reservation import Reservation
+from GoogleCalendar import GoogleCalendar
 
 env = Environment(
         loader = PackageLoader('reservations', 'templates'),
         autoescape = select_autoescape(['html', 'xml'])
 )
 
+url = "https://yasushis.scripts.mit.edu:444/reservations/admin"
+
 print "Content-type: text/html\n\n"
 
 if not check_admin() :
     template = env.get_template("error.html")
-    print template.render(err="either you don't have a MIT certificate or not a super user")
+    print template.render(err="either you don't have a MIT certificate or not a super user. you can try visit this url <a href=\"{url}\">{url}</a>".format(url=url))
     sys.exit()
 
 form = cgi.FieldStorage()
@@ -32,9 +35,6 @@ try :
 except:
     year = now.year
 
-
-
-# jupdate_pay = form.getlst("update")
 del_count = 0
 update_pay_count = 0
 deletes = form.getlist("delete")
