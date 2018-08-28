@@ -46,7 +46,7 @@ if len(deletes) > 0:
 for r_id in form.getlist("ids"):
     r = Reservation.select_by_event_id(r_id)
     if r_id in deletes:
-        r.delete()
+        r.delete(calendar)
         del_count += 1
         continue
     if not r.did_pay is (r_id in update_pay):
