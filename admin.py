@@ -20,7 +20,7 @@ print "Content-type: text/html\n\n"
 
 if not check_admin() :
     template = env.get_template("error.html")
-    print template.render(err="either you don't have a MIT certificate or not a super user. you can try visit this url <a href=\"{url}\">{url}</a>".format(url=url))
+    print template.render(err="either you don't have a MIT certificate or not a super user. You can try visit this {url}".format(url=url))
     sys.exit()
 
 form = cgi.FieldStorage()
@@ -62,5 +62,3 @@ else:
         
 template = env.get_template("admin.html")
 print template.render(month=month,year=year, reservations = result, status_line = status_line)
-    
-lguaWOJk3%WUHlSiZ75mZkk
