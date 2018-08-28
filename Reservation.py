@@ -117,7 +117,9 @@ class Reservation:
         r = Reservation(*record[2:14])
         r.id = record[0]
         r.event_id = record[1]
-        r.did_pay = record[14]
+        r.is_wec = True if record[11] is 1 else False
+        r.is_hundred_or_more = True if record[12] is 1 else False
+        r.did_pay = True if record[14] is 1 else False
 
         return r
         

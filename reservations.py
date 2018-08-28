@@ -27,6 +27,7 @@ calendar = GoogleCalendar()
 app = Flask(__name__, template_folder='./templates', static_url_path='/static')
 app.debug = True
 
+
 @app.route('/static/<path:path>')
 def static_files(path):
     return send_from_directory('static', path)

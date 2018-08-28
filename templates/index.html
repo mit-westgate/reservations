@@ -26,7 +26,7 @@
 
 {% macro checkbox(width, id, label, name='') -%}
 <div class="{{ width }} columns">
-  <input type="checkbox" name="{{ name }}" id="{{ id }}" value="true" required/>
+  <input type="checkbox" name="{{ name }}" id="{{ id }}" value="true"/>
   <span class="label-body">{{ label }}</span>
 </div>
 {%- endmacro%}
@@ -52,7 +52,7 @@
     </div>
   </div>
 
-<form action="/confirm" method="post">
+<form action="/reservations/confirm" method="post">
   <div class="row">
     {{ text_required('six', id='first_name', label='first name', ph='Tim' ) }}
     {{ text_required('six', id='last_name', label='last name', ph='Beaver' ) }}
@@ -84,7 +84,7 @@
   <div class="row">
     {{ checkbox('six', id='wec_event', name='is_wec_event', label='This event is sponsored by WEC.')}}
     <div class="six columns">
-      <input type="checkbox" name="did_agree_rules" id="agree_rules" value="true" />
+      <input type="checkbox" name="did_agree_rules" id="agree_rules" value="true" required/>
       <span class="label-body">
         I have read and agree with the <a href="https://github.com/mit-westgate/reservations/wiki/Reservation">lounge and barbecue rules</a>,
         including the fact of a $60 fine if the place id left messy.

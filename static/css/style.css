@@ -27,3 +27,11 @@ footer{
 .align-right {
   text-align: right;
 }
+
+td input {
+  margin-bottom: 0;
+}
+
+.red {
+  color:  red;
+}

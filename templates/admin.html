@@ -4,16 +4,16 @@
 {% macro reservation(id, place, start_time, first_name, last_name, email, event_name, adMitOne, did_pay, is_wec) %}
 <tr>
   <td>
-    <input type="checkbox" name="del_{{id}}" value="1" />
+    <input type="checkbox" name="delete" value="{{ id }}" />
+    <input type="hidden" name="ids" value="{{id}}"/>
   </td>
   <td>
     {% if did_pay %}
-    <input type="checkbox" name="update_paid_{{id}}" value="1" checked/>
+    <input type="checkbox" name="update_pay" value="{{ id }}" checked/>
     {% else %}
-    <input type="checkbox" name="update_paid_{{id}}" value="1" />
+    <input type="checkbox" name="update_pay" value="{{ id }}" />
     {% endif %}
   </td>
-
   <td>
     {{ place }}
   </td>
@@ -48,14 +48,46 @@ admin {{email}}
 {% block contents %}
 <div class="row">
   <div class="six columns">
-    Reservation list for {{ year }} / {{ month }}.
+    reservation list for {{ year }} / {{ month }}.
   </div>
 </div>
 
 <div class="row">
+  <div class = "six columns red">
+  {{ status_line }}
+</div>
+</div>
+
+<div class="row">
   <div class="twelve columns">
-    <form action="/admin" method="post">
+    <form action="/reservations/admin" method="post">
     <table>
+      <tr>
+        <td>
+         delete 
+        </td>
+        <td>
+          paid?
+        </td>
+        <td>
+          place 
+        </td>
+        <td>
+          starts
+        </td>
+        <td>
+          name
+        </td>
+        <td>
+          event name   
+        </td>
+        <td>
+          admit one
+        </td>
+        <td>
+          wec event?
+        </td>
+      </tr>
       {% for r in reservations %}
         {{ reservation(r.event_id, r.get_place(), r.render_time(), r.first_name, r.last_name, r.email, r.event_name, r.adMitOne, r.did_pay, r.is_wec)}}
       {% endfor %}
