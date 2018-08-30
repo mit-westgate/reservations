@@ -15,6 +15,13 @@
 </div>
 {%- endmacro %}
 
+{% macro text_required_link(width, id, label, ph, link, type='text', class='u-full-width') -%}
+<div class="{{width}} columns">
+  <label for="{{id}}"><a href="{{link}}" target="_blank">{{label}}</a>*</label>
+  <input class="{{class}}" type="{{type}}" id="{{id}}" name="{{id}}" placeholder="{{ph}}" required/>
+</div>
+{%- endmacro %}
+
 
 {% macro radio(width, id, name, label, value) -%}
 <div class="{{ width }} columns">
@@ -23,9 +30,9 @@
 </div>
 {%- endmacro%}
 
-{% macro checkbox(width, id, label, name='') -%}
+{% macro checkbox(width, id, label, name='', onclick="") -%}
 <div class="{{ width }} columns">
-  <input type="checkbox" name="{{ name }}" id="{{ id }}" value="true"/>
+  <input type="checkbox" name="{{ name }}" id="{{ id }}" value="true" onclick="{{onclick}}"/>
   <span class="label-body">{{ label }}</span>
 </div>
 {%- endmacro%}
@@ -46,7 +53,7 @@
       complete the form below to request a reservation for the Westgate
       lounge or barbecue area.
       An admit One ticket purchase is required prior to every reservation. (Except, events sponsored by the
-      Westgate Executive Committee)
+      Westgate Executive Committee). Insert 'WAIVE' and use wec mail address for WEC officier waiver. (limited to 6 entries)
       <br>
       <a href="https://yasushis.scripts.mit.edu:444/reservations/admin">admin</a>
     </div>
@@ -72,17 +79,17 @@
 
   <div class="row">
     {{ text_required('eight', id='event_name', label='event name', ph='Annual beaver conference') }}
-    {{ text('four', id='admit_one', label='adMIT One #', ph='123456' ) }}
+    {{ text_required_link('four', id='admit_one', label='adMIT One #', ph='123456', link='https://mit.universitytickets.com/w/event.aspx?id=858&p=1' ) }}
   </div>
 
   <div class="row">
-    {{ text_required('four', id='date', label='date', ph='dd/mm/yy', type='date') }}
+    {{ text_required('four', id='date', label='date', ph='yyyy-mm-dd', type='date') }}
     {{ text_required('four', id='starts', label='starts', ph='16:00', type='time' ) }}
     {{ text_required('four', id='ends', label='ends', ph='20:00', type='time' ) }}
   </div>
 
   <div class="row">
-    {{ checkbox('six', id='wec_event', name='is_wec_event', label='This event is sponsored by WEC.')}}
+    {{ checkbox('six', id='wec_event', name='is_wec_event', label='This event is sponsored by WEC.', onclick="waiveWec()")}}
     <div class="six columns">
       <input type="checkbox" name="did_agree_rules" id="agree_rules" value="true" required/>
       <span class="label-body">
@@ -92,7 +99,7 @@
     </div>
   </div>
 
-  <div class="row"><strong>Will 100 or more guests be at this event?<strong></div>
+  <div class="row"><strong>Will 100 or more guests be at this event? *<strong></div>
   <div class="row">
     {{ radio('two', id='hundred_no', name='hundred', label='No', value='0') }}
     <div class="five columns">
@@ -108,7 +115,7 @@
     </div>
   </div>
 
-  <div class="row"><strong>Will alcoholic beverages be at this event?<strong></div>
+  <div class="row"><strong>Will alcoholic beverages be at this event? *<strong></div>
   <div class="row">
     {{ radio('two', id='alcohol_no', name='alcohol', label='No', value='0') }}
     <div class="five columns">
@@ -127,7 +134,7 @@
     <div class="five columns">
     <input type="radio" name="alcohol" id="alcohol_yes_more" value="2" />
       <span class="label-body">
-        Yes, and there will be more than 50 guests.
+        Yes, and there will be more than 50 guests. 
         <p class="small-text">
           I will file all necessary forms and comply with all alcohol-related policies found
           at <a href="http://web.mit.edu/eventguide/eventregulations/alcohol.html">
@@ -144,7 +151,20 @@
   <div class="row">
     <button class="button-primary" type="submit"> submit </button>
   </div>
-
 </form>
+
+<script>
+function waiveWec(){
+  
+  let wecCheck = document.getElementById("wec_event");
+  let admitOne = document.getElementById("admit_one");
+
+  if (wecCheck.checked) {
+    admitOne.value = "WAIVE" 
+  } else {
+    admitOne.value = ""
+  }
+}
+</script>
 
 {% endblock %}
