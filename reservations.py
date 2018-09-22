@@ -100,39 +100,6 @@ def check():
             err=err 
         )
     
-# @app.route('/admin', methods=['GET', 'POST'])
-# def admin():
-#     # if(not check_admin()):
-#     #     return render_template("error.html",
-#     #             err="mit credentials and super user required!")
-#     # email = os.environ["SSL_CLIENT_S_DN_Email"]
-# 
-#     email ="hi"
-#     # handle this with javascript
-#     if request.method == 'POST':
-#         for value in request.form:
-#             command = value.split("_")
-#             if command[0] == 'del':
-#                 r = Reservation.select_by_event_id(command[1])
-#                 r.delete(calendar)
-#             elif command[0] == 'update' and command[1] == 'paid':
-#                 try:
-#                     r = Reservation.select_by_event_id(command[2])
-#                     r.update_did_pay()
-#                 except:
-#                     pass
-#             
-#     now = datetime.now() 
-#     year = request.args.get('year', default = now.year, type = int)
-#     month = request.args.get('month', default = now.month, type = int)
-#     result = Reservation.select_month(year, month)
-#     return render_template("admin.html",
-#             email = email,
-#             year = year,
-#             month = month,
-#             reservations = result
-#             )
-
 @app.after_request
 def disable_xss_protection(response):
     response.headers.add('X-XSS-PROTECTION', '0')

@@ -52,8 +52,11 @@
       calendar and finding an open time slot,
       complete the form below to request a reservation for the Westgate
       lounge or barbecue area.
-      An admit One ticket purchase is required prior to every reservation. (Except, events sponsored by the
-      Westgate Executive Committee). Insert 'WAIVE' and use wec mail address for WEC officier waiver. (limited to 6 entries)
+      The reservation fee is $10/4 hours and 
+      an <a href="https://mit.universitytickets.com/w/event.aspx?id=858&p=1">admit One ticket purchase</a> is required prior to every reservation. (Except, events sponsored by the
+      Westgate Executive Committee). 
+      
+      Insert 'WAIVE' and use wec mail address for WEC officier waiver. (limited to 6 entries)
       <br>
       <a href="https://yasushis.scripts.mit.edu:444/reservations/admin">admin</a>
     </div>
@@ -76,18 +79,22 @@
     {{ radio('two', id='lounge', name='place', label='lounge', value='0') }}
     {{ radio('two', id='bbq', name='place', label='bbq', value='1') }}
   </div>
-
-  <div class="row">
-    {{ text_required('eight', id='event_name', label='event name', ph='Annual beaver conference') }}
-    {{ text_required_link('four', id='admit_one', label='adMIT One #', ph='123456', link='https://mit.universitytickets.com/w/event.aspx?id=858&p=1' ) }}
-  </div>
-
+  
   <div class="row">
     {{ text_required('four', id='date', label='date', ph='yyyy-mm-dd', type='date') }}
     {{ text_required('four', id='starts', label='starts', ph='16:00', type='time' ) }}
     {{ text_required('four', id='ends', label='ends', ph='20:00', type='time' ) }}
   </div>
 
+  <div id="howmuch" class="row how much">
+  </div>
+
+  <div class="row">
+    {{ text_required('eight', id='event_name', label='event name', ph='Annual beaver conference') }}
+    {{ text_required_link('four', id='admit_one', label='adMIT One #', ph='123456', link='https://mit.universitytickets.com/w/event.aspx?id=858&p=1' ) }}
+  </div>
+
+  
   <div class="row">
     {{ checkbox('six', id='wec_event', name='is_wec_event', label='This event is sponsored by WEC.', onclick="waiveWec()")}}
     <div class="six columns">
@@ -152,19 +159,6 @@
     <button class="button-primary" type="submit"> submit </button>
   </div>
 </form>
-
-<script>
-function waiveWec(){
-  
-  let wecCheck = document.getElementById("wec_event");
-  let admitOne = document.getElementById("admit_one");
-
-  if (wecCheck.checked) {
-    admitOne.value = "WAIVE" 
-  } else {
-    admitOne.value = ""
-  }
-}
-</script>
+<script src="static/js/helper.js"></script>
 
 {% endblock %}
