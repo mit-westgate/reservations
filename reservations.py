@@ -89,6 +89,7 @@ def check():
     if (err is None) :
 
         r.add(calendar)
+        r.send_confirmation()
 
         return render_template("success.html",
             place = json_data['place'],

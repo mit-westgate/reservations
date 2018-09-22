@@ -224,7 +224,7 @@ class Reservation:
         
         """.format(self.first_name, place, starts, place)
 
-        send_mail(sender = admin_email, proxy = admin_email, to = to, bcc = admin_email, subject = subject, text = message);
+        send_mail(sender = admin_email, proxy = admin_email, to = to, cc = admin_email, subject = subject, text = message);
         
     def get_obj(self):
         obj = vars(self)

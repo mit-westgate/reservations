@@ -32,6 +32,10 @@ td input {
   margin-bottom: 0;
 }
 
-.red {
+#status{
+  color: blue;
+}
+
+.red, #error {
   color:  red;
 }

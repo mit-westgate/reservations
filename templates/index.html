@@ -15,10 +15,18 @@
 </div>
 {%- endmacro %}
 
-{% macro text_required_link(width, id, label, ph, link, type='text', class='u-full-width') -%}
+{% macro text_required_onchange(width, id, label, ph, type='text', class='u-full-width', onchange='') -%}
+<div class="{{width}} columns">
+  <label for="{{id}}">{{label}} *</label>
+  <input class="{{class}}" type="{{type}}" id="{{id}}" name="{{id}}" placeholder="{{ph}}" onchange="{{onchange}}" required/>
+</div>
+{%- endmacro %}
+
+
+{% macro text_required_link(width, id, label, ph, link, type='text', class='u-full-width', onchange='') -%}
 <div class="{{width}} columns">
   <label for="{{id}}"><a href="{{link}}" target="_blank">{{label}}</a>*</label>
-  <input class="{{class}}" type="{{type}}" id="{{id}}" name="{{id}}" placeholder="{{ph}}" required/>
+  <input class="{{class}}" type="{{type}}" id="{{id}}" name="{{id}}" placeholder="{{ph}}" onchange="{{onchange}}" required/>
 </div>
 {%- endmacro %}
 
@@ -42,21 +50,21 @@
   <div class="row">
     <div class="six columns">
       after viewing the online
-      <a href="http://www.google.com/calendar/embed?src=jbt1onapg3ffroh27umi9qm4ic%40group.calendar.google.com">
+      <a href="http://www.google.com/calendar/embed?src=jbt1onapg3ffroh27umi9qm4ic%40group.calendar.google.com" target="_blank">
         lounge
       </a>
       or
-      <a href="http://www.google.com/calendar/embed?src=tjsllo1pojk4tpcp40l8pinseg%40group.calendar.google.com">
+      <a href="http://www.google.com/calendar/embed?src=tjsllo1pojk4tpcp40l8pinseg%40group.calendar.google.com" target="_blank">
         barbecue
       </a>
       calendar and finding an open time slot,
       complete the form below to request a reservation for the Westgate
       lounge or barbecue area.
       The reservation fee is $10/4 hours and 
-      an <a href="https://mit.universitytickets.com/w/event.aspx?id=858&p=1">admit One ticket purchase</a> is required prior to every reservation. (Except, events sponsored by the
+      an <a href="https://mit.universitytickets.com/w/event.aspx?id=858&p=1" target="_blank" >admit One ticket purchase</a> is required prior to every reservation. (Except, events sponsored by the
       Westgate Executive Committee). 
       
-      Insert 'WAIVE' and use wec mail address for WEC officier waiver. (limited to 6 entries)
+      Insert 'WAIVED' and use wec mail address for WEC officier waiver. (limited to 6 entries)
       <br>
       <a href="https://yasushis.scripts.mit.edu:444/reservations/admin">admin</a>
     </div>
@@ -83,18 +91,19 @@
   <div class="row">
     {{ text_required('four', id='date', label='date', ph='yyyy-mm-dd', type='date') }}
     {{ text_required('four', id='starts', label='starts', ph='16:00', type='time' ) }}
-    {{ text_required('four', id='ends', label='ends', ph='20:00', type='time' ) }}
+    {{ text_required_onchange('four', id='ends', label='ends', ph='20:00', type='time', onchange="validateTime()" ) }}
   </div>
 
-  <div id="howmuch" class="row how much">
-  </div>
 
   <div class="row">
     {{ text_required('eight', id='event_name', label='event name', ph='Annual beaver conference') }}
-    {{ text_required_link('four', id='admit_one', label='adMIT One #', ph='123456', link='https://mit.universitytickets.com/w/event.aspx?id=858&p=1' ) }}
+    {{ text_required_link('four', id='admit_one', label='adMIT One #', ph='ABCDEF', link='https://mit.universitytickets.com/w/event.aspx?id=858&p=1', onchange="validate()" ) }}
   </div>
 
-  
+
+  <div id="status" class="row">
+  </div>
+
   <div class="row">
     {{ checkbox('six', id='wec_event', name='is_wec_event', label='This event is sponsored by WEC.', onclick="waiveWec()")}}
     <div class="six columns">
@@ -154,9 +163,12 @@
       </span>
     </div>
   </div>
+  
+  <div id="error" class="row">
+  </div>
 
   <div class="row">
-    <button class="button-primary" type="submit"> submit </button>
+    <button id="submit" class="button-primary" type="submit"> submit </button>
   </div>
 </form>
 <script src="static/js/helper.js"></script>
