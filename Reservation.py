@@ -206,7 +206,7 @@ class Reservation:
         else:
             return self.end_time.strftime("%m-%d-%Y %I:%M %p")
 
-    def send_confirmation():
+    def send_confirmation(self):
         name = "{} {}".format(self.first_name, self.last_name) 
         to = "{} <{}>".format(name, self.email)
         place = "Lounge" if self.place_id is 0 else "BBQ"
