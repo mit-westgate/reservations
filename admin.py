@@ -53,7 +53,7 @@ for r_id in form.getlist("ids"):
         r.update_did_pay(not r.did_pay)
         update_pay_count += 1
 
-result = Reservation.select_month(year, month)
+result = Reservation.select_two_months(year, month)
 
 if (del_count + update_pay_count) > 0:
     status_line = "deleted: {}, updated pay status: {}".format(del_count, update_pay_count)

@@ -60,6 +60,29 @@ class Reservation:
             return [Reservation.from_record(r) for r in cursor.fetchall()]
 
     @staticmethod
+    def select_two_months(year, month):
+        end_year = year
+        end_month = month + 1
+        if(month == 12):
+            end_month = 1
+            end_year += 1
+        with sqlite3.connect(database_file) as con:
+            cursor = con.cursor()
+            _, last_day = monthrange(end_year, end_month)
+            month = '{0:02d}'.format(month)
+            end_month = '{0:02d}'.format(end_month)
+            q = "SELECT * FROM reservations WHERE start_time BETWEEN '{year}-{month}-01' AND '{end_year}-{end_month}-{last_day}'".format(
+                year = year,
+                month = month,
+                end_month = end_month,
+                end_year = end_year,
+                last_day = last_day
+                )
+            cursor.execute(q)
+            return [Reservation.from_record(r) for r in cursor.fetchall()]
+
+
+    @staticmethod
     def select_by_event_id(eid):
         with sqlite3.connect(database_file) as con:
             cursor = con.cursor()
@@ -237,7 +260,7 @@ class Reservation:
             obj['alcohol'] = "serving, guests equal or less than 50"
         obj['name'] = "{} {}".format(self.first_name, self.last_name)
         obj['place'] = "Lounge" if self.place_id is 0 else "BBQ"
-        obj['hundred'] = "No" if self.is_hundred_or_more is 0 else "Yes"
+        obj['hundred'] = "Yes" if self.is_hundred_or_more is 0 else "No"
         obj['starts'] = self.start_time.strftime("%Y-%m-%d %I:%M %p")
         obj['ends'] = self.end_time.strftime("%Y-%m-%d %I:%M %p")
         
