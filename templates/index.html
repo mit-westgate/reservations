@@ -61,7 +61,7 @@
       complete the form below to request a reservation for the Westgate
       lounge or barbecue area.
       The reservation fee is $10/4 hours and 
-      an <a href="https://mit.universitytickets.com/w/event.aspx?id=858&p=1" target="_blank" >admit One ticket purchase</a> is required prior to every reservation. (Except, events sponsored by the
+      an <a href="https://mit.universitytickets.com/w/event.aspx?id=1100" target="_blank" >admit One ticket purchase</a> is required prior to every reservation. (Except, events sponsored by the
       Westgate Executive Committee). 
       
       Insert 'WAIVED' and use wec mail address for WEC officier waiver. (limited to 6 entries)
@@ -97,7 +97,7 @@
 
   <div class="row">
     {{ text_required('eight', id='event_name', label='event name', ph='Annual beaver conference') }}
-    {{ text_required_link('four', id='admit_one', label='adMIT One #', ph='ABCDEF', link='https://mit.universitytickets.com/w/event.aspx?id=858&p=1', onchange="validate()" ) }}
+    {{ text_required_link('four', id='admit_one', label='adMIT One #', ph='ABCDEF', link='https://mit.universitytickets.com/w/event.aspx?id=1100&p=1', onchange="validate()" ) }}
   </div>
 
 
@@ -109,8 +109,8 @@
     <div class="six columns">
       <input type="checkbox" name="did_agree_rules" id="agree_rules" value="true" required/>
       <span class="label-body">
-        I have read and agree with the <a href="https://github.com/mit-westgate/reservations/wiki/Reservation">lounge and barbecue rules</a>,
-        including the fact of a $60 fine if the place id left messy.
+        I have read and agree with the <a href="https://westgate.scripts.mit.edu/main/basement-lounge-rules/">lounge and barbecue rules</a>,
+        including the fact of a $60 fine if the place is left messy.
       </span>
     </div>
   </div>
@@ -168,7 +168,7 @@
   </div>
 
   <div class="row">
-    <button id="submit" class="button-primary" type="submit"> submit </button>
+    <!-- <button id="submit" class="button-primary" type="submit"> submit </button> -->
   </div>
 </form>
 <script src="static/js/helper.js"></script>

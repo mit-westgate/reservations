@@ -95,8 +95,16 @@ class Reservation:
         str_time = "{} {}".format(date, time)
         return eastern_time.localize(datetime.strptime(str_time, "%Y-%m-%d %H:%M"))
 
+
+
     def check(self, calendar):
         # def list_events(self, calendar_id, time_min, time_max):
+
+        now = eastern_time.localize(datetime.now())
+        
+        
+        if self.start_time < now :
+            return "cannot reserve past time periods"
 
         result = calendar.list_events(self.get_place(), self.start_time, self.end_time)
 
