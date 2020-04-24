@@ -14,7 +14,7 @@ env = Environment(
         autoescape = select_autoescape(['html', 'xml'])
 )
 
-url = "https://yasushis.scripts.mit.edu:444/reservations/admin"
+url = "https://westgate.scripts.mit.edu:444/reservations/admin"
 
 print "Content-type: text/html\n\n"
 
